@@ -1,6 +1,5 @@
 # websockets-messenger
 
-
 Terminal messenger using websockets.
 
 
