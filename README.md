@@ -4,8 +4,14 @@
 
 Terminal messenger using websockets.
 
+### Install
+```
+$ npm ci
+```
+
 
 ### Server
+
 ```
 $ npm run server
 ```
