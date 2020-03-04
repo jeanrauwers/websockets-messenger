@@ -10,7 +10,7 @@ Terminal messenger using websockets.
 $ npm run server
 ```
 
-### Client
+### Connect to server using the Client
 ```
 $ npm run client 
 ```
