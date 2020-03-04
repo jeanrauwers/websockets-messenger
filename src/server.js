@@ -16,7 +16,7 @@ app.get('/messages', (req, res) => {
 
 app.post('/messages', (req, res) => {
     const message = req.body
-    message.push(messages);
+    messages.push(message);
 
     sockets.forEach((socket) => {
         socket.send(JSON.stringify(message));

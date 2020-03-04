@@ -9,7 +9,7 @@ const terminal = readline.createInterface({
 })
 
 terminal.on('line', text => {
-    const username = process.env.NAME || 'visitor';
+    const username = process.env.NAME || 'Client';
 
     const id = uniqid();
     displayedMessages[id] = true;
@@ -24,12 +24,16 @@ const displayMessage = (message) => {
 };
 
 const getAndDisplayMessages = async () => {
-    const messages = await messageApi.getMessage();
-
-    messages.forEach((message) => {
-        const messageAlreadyDisplayed = message.id in displayedMessages;
-        if (!messageAlreadyDisplayed) displayMessage(message);
-    })
+    try {
+        const messages = await messageApi.getMessage();
+        messages.forEach((message) => {
+            const messageAlreadyDisplayed = message.id in displayedMessages;
+            if (!messageAlreadyDisplayed) displayMessage(message);
+         });
+    } catch (error) {
+        console.log(error)
+    }
+    
 };
 
 const streamMessages = () => {

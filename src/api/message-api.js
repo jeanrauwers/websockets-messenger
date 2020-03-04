@@ -7,11 +7,11 @@ const createMessagingSocket = () => {
 }
 
 const getMessage = () => {
-    return axios.get('http://localhost:3001/messages');
+    return axios.get('http://localhost:3001/messages').then(res => res.data);
 }
 
-const sendMessage = () => {
-    return axios.post('http://localhost:3001/messages');
+const sendMessage = (message) => {
+    return axios.post('http://localhost:3001/messages', message);
 }
 
 module.exports.createMessagingSocket = createMessagingSocket;
