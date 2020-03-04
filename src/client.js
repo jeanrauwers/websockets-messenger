@@ -8,14 +8,17 @@ const terminal = readline.createInterface({
     input: process.stdin,
 })
 
+let clientNumber = 1;
+
 terminal.on('line', text => {
-    const username = process.env.NAME || 'Client';
+    const username = process.env.NAME || `Client-${clientNumber}`;
 
     const id = uniqid();
     displayedMessages[id] = true;
 
     const message = { id, text, username };
     messageApi.sendMessage(message)
+    clientNumber++
 })
 
 const displayMessage = (message) => {
@@ -29,11 +32,11 @@ const getAndDisplayMessages = async () => {
         messages.forEach((message) => {
             const messageAlreadyDisplayed = message.id in displayedMessages;
             if (!messageAlreadyDisplayed) displayMessage(message);
-         });
+        });
     } catch (error) {
         console.log(error)
     }
-    
+
 };
 
 const streamMessages = () => {
@@ -45,9 +48,6 @@ const streamMessages = () => {
         if (!messageAlreadyDisplayed) displayMessage(message)
     })
 };
-
-
-
 
 getAndDisplayMessages();
 streamMessages();
