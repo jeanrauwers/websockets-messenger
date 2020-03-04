@@ -6,14 +6,14 @@ const createMessagingSocket = () => {
     return new WebSockets('ws://localhost:3001/messages');
 }
 
-const getMessages = () => {
+const getMessage = () => {
     return axios.get('http://localhost:3001/messages');
 }
 
-const sendMessages = () => {
+const sendMessage = () => {
     return axios.post('http://localhost:3001/messages');
 }
 
 module.exports.createMessagingSocket = createMessagingSocket;
-module.exports.getMessages = getMessages;
-module.exports.sendMessages = sendMessages;
+module.exports.getMessage = getMessage;
+module.exports.sendMessage = sendMessage;
