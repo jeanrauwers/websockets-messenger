@@ -4,6 +4,8 @@ const expressWs = require('express-ws')
 const app = express();
 expressWs(app);
 
+const port = 3001;
+
 const messages = [{ id: 0, text: 'Welcome to the messenger app', username: 'Chat Room' }];
 const sockets = [];
 
@@ -31,6 +33,6 @@ app.ws('/messages', (socket) => {
     })
 })
 
-app.listen(3001, () => {
+app.listen(port, () => {
     console.log('Listening on port 3001!')
 })

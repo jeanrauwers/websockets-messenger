@@ -6,12 +6,16 @@ Terminal messenger using websockets.
 
 ### Server
 ```
-$npm run server
+$ npm run server
 ```
 
 ### Client
 ```
-$npm run client 
+$ npm run client 
 ```
 
-Client Name can be passed as flag Name=Jean
+Client Name can be passed as ENV variable NAME
+
+```
+$ NAME=JEAN npm run client 
+```
